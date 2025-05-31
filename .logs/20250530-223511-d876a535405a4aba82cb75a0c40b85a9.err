@@ -1,0 +1,76 @@
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ ⚠ Fast Refresh had to perform a full reload. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ ⚠ Fast Refresh had to perform a full reload. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ ⨯ Error: Cannot access default.then on the server. You cannot dot into a client module from a server component. You can only pass the imported name through.
+    at Object.get (/opt/hostedapp/node/root/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:254039)
+    at rU (/opt/hostedapp/node/root/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:39:9326)
+    at async /opt/hostedapp/node/root/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:39:10412
+    at async Promise.all (index 0)
+    at async rU (/opt/hostedapp/node/root/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:39:10117)
+    at async /opt/hostedapp/node/root/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:39:10412
+    at async Promise.all (index 0)
+    at async rU (/opt/hostedapp/node/root/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:39:10117)
+    at async rW (/opt/hostedapp/node/root/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:39:12704)
+    at async r0 (/opt/hostedapp/node/root/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:39:16198)
+    at async doRender (/opt/hostedapp/node/root/node_modules/next/dist/server/base-server.js:1427:30)
+    at async cacheEntry.responseCache.get.routeKind (/opt/hostedapp/node/root/node_modules/next/dist/server/base-server.js:1588:28)
+    at async DevServer.renderToResponseWithComponentsImpl (/opt/hostedapp/node/root/node_modules/next/dist/server/base-server.js:1496:28)
+    at async DevServer.renderPageComponent (/opt/hostedapp/node/root/node_modules/next/dist/server/base-server.js:1924:24)
+    at async DevServer.renderToResponseImpl (/opt/hostedapp/node/root/node_modules/next/dist/server/base-server.js:1962:32)
+    at async DevServer.pipeImpl (/opt/hostedapp/node/root/node_modules/next/dist/server/base-server.js:922:25)
+    at async NextNodeServer.handleCatchallRenderRequest (/opt/hostedapp/node/root/node_modules/next/dist/server/next-server.js:272:17)
+    at async DevServer.handleRequestImpl (/opt/hostedapp/node/root/node_modules/next/dist/server/base-server.js:818:17)
+    at async /opt/hostedapp/node/root/node_modules/next/dist/server/dev/next-dev-server.js:339:20
+    at async Span.traceAsyncFn (/opt/hostedapp/node/root/node_modules/next/dist/trace/trace.js:154:20)
+    at async DevServer.handleRequest (/opt/hostedapp/node/root/node_modules/next/dist/server/dev/next-dev-server.js:336:24)
+    at async invokeRender (/opt/hostedapp/node/root/node_modules/next/dist/server/lib/router-server.js:178:21)
+    at async handleRequest (/opt/hostedapp/node/root/node_modules/next/dist/server/lib/router-server.js:355:24)
+    at async requestHandlerImpl (/opt/hostedapp/node/root/node_modules/next/dist/server/lib/router-server.js:379:13)
+    at async Server.requestListener (/opt/hostedapp/node/root/node_modules/next/dist/server/lib/start-server.js:141:13) {
+  page: '/locations'
+}
+ ⨯ Error: Cannot access default.then on the server. You cannot dot into a client module from a server component. You can only pass the imported name through.
+    at async Promise.all (index 0)
+    at async Promise.all (index 0)
+digest: "1151625224"
+ ⨯ Error: Cannot access default.then on the server. You cannot dot into a client module from a server component. You can only pass the imported name through.
+    at async Promise.all (index 0)
+    at async Promise.all (index 0)
+digest: "1151625224"
+ ⨯ Error: Cannot access default.then on the server. You cannot dot into a client module from a server component. You can only pass the imported name through.
+    at async Promise.all (index 0)
+    at async Promise.all (index 0)
+digest: "1151625224"
+ ⨯ Error: Cannot access default.then on the server. You cannot dot into a client module from a server component. You can only pass the imported name through.
+    at async Promise.all (index 0)
+    at async Promise.all (index 0)
+digest: "1151625224"
+ ⨯ Error: Cannot access default.then on the server. You cannot dot into a client module from a server component. You can only pass the imported name through.
+    at Object.get (/opt/hostedapp/node/root/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:254039)
+    at rU (/opt/hostedapp/node/root/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:39:9326)
+    at async /opt/hostedapp/node/root/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:39:10412
+    at async Promise.all (index 0)
+    at async rU (/opt/hostedapp/node/root/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:39:10117)
+    at async /opt/hostedapp/node/root/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:39:10412
+    at async Promise.all (index 0)
+    at async rU (/opt/hostedapp/node/root/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:39:10117)
+    at async rW (/opt/hostedapp/node/root/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:39:12704)
+    at async r0 (/opt/hostedapp/node/root/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:39:16198)
+    at async doRender (/opt/hostedapp/node/root/node_modules/next/dist/server/base-server.js:1427:30)
+    at async cacheEntry.responseCache.get.routeKind (/opt/hostedapp/node/root/node_modules/next/dist/server/base-server.js:1588:28)
+    at async DevServer.renderToResponseWithComponentsImpl (/opt/hostedapp/node/root/node_modules/next/dist/server/base-server.js:1496:28)
+    at async DevServer.renderPageComponent (/opt/hostedapp/node/root/node_modules/next/dist/server/base-server.js:1924:24)
+    at async DevServer.renderToResponseImpl (/opt/hostedapp/node/root/node_modules/next/dist/server/base-server.js:1962:32)
+    at async DevServer.pipeImpl (/opt/hostedapp/node/root/node_modules/next/dist/server/base-server.js:922:25)
+    at async NextNodeServer.handleCatchallRenderRequest (/opt/hostedapp/node/root/node_modules/next/dist/server/next-server.js:272:17)
+    at async DevServer.handleRequestImpl (/opt/hostedapp/node/root/node_modules/next/dist/server/base-server.js:818:17)
+    at async /opt/hostedapp/node/root/node_modules/next/dist/server/dev/next-dev-server.js:339:20
+    at async Span.traceAsyncFn (/opt/hostedapp/node/root/node_modules/next/dist/trace/trace.js:154:20)
+    at async DevServer.handleRequest (/opt/hostedapp/node/root/node_modules/next/dist/server/dev/next-dev-server.js:336:24)
+    at async invokeRender (/opt/hostedapp/node/root/node_modules/next/dist/server/lib/router-server.js:178:21)
+    at async handleRequest (/opt/hostedapp/node/root/node_modules/next/dist/server/lib/router-server.js:355:24)
+    at async requestHandlerImpl (/opt/hostedapp/node/root/node_modules/next/dist/server/lib/router-server.js:379:13)
+    at async Server.requestListener (/opt/hostedapp/node/root/node_modules/next/dist/server/lib/start-server.js:141:13) {
+  page: '/locations'
+}

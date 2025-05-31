@@ -1,0 +1,55 @@
+yarn run v1.22.22
+$ next build
+Attention: Next.js now collects completely anonymous telemetry regarding usage.
+This information is used to shape Next.js' roadmap and prioritize features.
+You can learn more, including how to opt-out if you'd not like to participate in this anonymous program, by visiting the following URL:
+https://nextjs.org/telemetry
+
+  ▲ Next.js 14.2.28
+  - Experiments (use with caution):
+    · outputFileTracingRoot
+
+   Creating an optimized production build ...
+ ✓ Compiled successfully
+   Skipping linting
+   Checking validity of types ...
+   Collecting page data ...
+   Generating static pages (0/11) ...
+   Generating static pages (2/11) 
+   Generating static pages (5/11) 
+   Generating static pages (8/11) 
+ ✓ Generating static pages (11/11)
+   Finalizing page optimization ...
+   Collecting build traces ...
+
+Route (app)                              Size     First Load JS
+┌ ○ /                                    6.05 kB         148 kB
+├ ○ /_not-found                          873 B            88 kB
+├ ƒ /api/articles                        0 B                0 B
+├ ƒ /api/auth/login                      0 B                0 B
+├ ƒ /api/auth/logout                     0 B                0 B
+├ ƒ /api/auth/me                         0 B                0 B
+├ ƒ /api/auth/register                   0 B                0 B
+├ ƒ /api/challenges                      0 B                0 B
+├ ƒ /api/locations                       0 B                0 B
+├ ƒ /api/locations/[id]                  0 B                0 B
+├ ƒ /api/marketplace                     0 B                0 B
+├ ƒ /api/seed                            0 B                0 B
+├ ○ /auth/login                          3.33 kB         107 kB
+├ ○ /auth/register                       4.17 kB         133 kB
+├ ○ /challenges                          4.01 kB         150 kB
+├ ○ /dashboard                           5.2 kB          146 kB
+├ ○ /locations                           5.45 kB         175 kB
+├ ƒ /locations/[id]                      5.95 kB         139 kB
+├ ○ /magazine                            4.99 kB         151 kB
+└ ○ /marketplace                         5.29 kB         166 kB
++ First Load JS shared by all            87.1 kB
+  ├ chunks/364-8a310372a16bd659.js       31.6 kB
+  ├ chunks/618f8807-47f11b44f3fbec00.js  53.6 kB
+  └ other shared chunks (total)          1.9 kB
+
+
+○  (Static)   prerendered as static content
+ƒ  (Dynamic)  server-rendered on demand
+
+Done in 31.76s.

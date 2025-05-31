@@ -1,0 +1,117 @@
+yarn run v1.22.22
+$ next dev
+  ▲ Next.js 14.2.28
+  - Local:        http://localhost:3000
+  - Environments: .env
+  - Experiments (use with caution):
+    · outputFileTracingRoot
+
+ ✓ Starting...
+Attention: Next.js now collects completely anonymous telemetry regarding usage.
+This information is used to shape Next.js' roadmap and prioritize features.
+You can learn more, including how to opt-out if you'd not like to participate in this anonymous program, by visiting the following URL:
+https://nextjs.org/telemetry
+
+ ✓ Ready in 1344ms
+ ○ Compiling /api/seed ...
+ ✓ Compiled /api/seed in 621ms (142 modules)
+Starting database seeding...
+Created users: 4
+Created locations: 3
+Created equipment listings: 3
+Created challenges: 2
+Created articles: 3
+Created reviews: 3
+Database seeding completed successfully!
+ POST /api/seed 200 in 1268ms
+ ○ Compiling / ...
+ ✓ Compiled / in 4.4s (1470 modules)
+ GET / 200 in 4817ms
+ ✓ Compiled in 559ms (680 modules)
+ ○ Compiling /locations ...
+ ✓ Compiled /locations in 792ms (1487 modules)
+ GET /locations 200 in 908ms
+ ✓ Compiled /api/locations in 269ms (804 modules)
+ ✓ Compiled (806 modules)
+ GET /api/auth/me 401 in 537ms
+ GET /api/locations?page=1&limit=12 200 in 544ms
+ GET /api/auth/me 401 in 19ms
+ GET /api/locations?page=1&limit=12 200 in 19ms
+ ✓ Compiled in 683ms (1503 modules)
+ GET /locations 200 in 86ms
+ GET /api/auth/me 401 in 35ms
+ GET /api/locations?page=1&limit=12 200 in 48ms
+ GET /api/auth/me 401 in 29ms
+ GET /api/locations?page=1&limit=12 200 in 23ms
+ ✓ Compiled in 289ms (697 modules)
+ GET /locations 200 in 51ms
+ GET /api/auth/me 401 in 27ms
+ GET /api/locations?page=1&limit=12 200 in 39ms
+ GET /api/auth/me 401 in 27ms
+ GET /api/locations?page=1&limit=12 200 in 23ms
+ ○ Compiling /marketplace ...
+ ✓ Compiled /marketplace in 964ms (1503 modules)
+ GET /marketplace 200 in 1065ms
+ GET /api/auth/me 401 in 48ms
+ ✓ Compiled /api/marketplace in 245ms (815 modules)
+ GET /api/auth/me 401 in 450ms
+ GET /api/marketplace?page=1&limit=12 200 in 515ms
+ GET /api/marketplace?page=1&limit=12 200 in 21ms
+ GET /api/marketplace 200 in 23ms
+ GET /marketplace 200 in 51ms
+ GET /marketplace 200 in 37ms
+ GET /api/auth/me 401 in 27ms
+ GET /api/marketplace?page=1&limit=12 200 in 37ms
+ GET /api/auth/me 401 in 28ms
+ GET /api/marketplace?page=1&limit=12 200 in 32ms
+ ○ Compiling /challenges ...
+ ✓ Compiled /challenges in 567ms (1514 modules)
+ GET /challenges 200 in 688ms
+ GET /api/auth/me 401 in 43ms
+ ✓ Compiled /api/challenges in 223ms (817 modules)
+ GET /api/auth/me 401 in 452ms
+ GET /api/challenges?status=ACTIVE 200 in 503ms
+ GET /api/challenges?status=ACTIVE 200 in 26ms
+ ✓ Compiled /magazine in 470ms (1528 modules)
+ GET /magazine 200 in 563ms
+ GET /api/auth/me 401 in 52ms
+ ✓ Compiled /api/articles in 255ms (827 modules)
+ GET /api/auth/me 401 in 567ms
+ GET /api/articles?limit=3 200 in 635ms
+ GET /api/articles? 200 in 637ms
+ GET /api/articles?limit=3 200 in 29ms
+ GET /api/articles? 200 in 31ms
+ ○ Compiling /auth/register ...
+ ✓ Compiled /auth/register in 613ms (1546 modules)
+ GET /auth/register 200 in 722ms
+ GET /api/auth/me 401 in 30ms
+ GET /api/auth/me 401 in 21ms
+ GET /api/locations 200 in 29ms
+ GET /api/challenges 200 in 29ms
+ GET /api/articles 200 in 26ms
+ ✓ Compiled in 462ms (1546 modules)
+ ✓ Compiled / in 672ms (1556 modules)
+ ✓ Compiled in 1ms (840 modules)
+ GET / 200 in 861ms
+ GET /api/auth/me 401 in 25ms
+ GET /api/auth/me 401 in 16ms
+ ✓ Compiled in 604ms (1562 modules)
+ ✓ Compiled in 0ms (840 modules)
+ ✓ Compiled in 0ms (840 modules)
+ ✓ Compiled in 0ms (840 modules)
+ GET /locations 500 in 906ms
+ ○ Compiling /_error ...
+ ✓ Compiled /_error in 1379ms (1777 modules)
+ GET /locations 500 in 1666ms
+ ✓ Compiled in 564ms (1789 modules)
+ GET /locations 200 in 164ms
+ GET /locations 200 in 99ms
+ GET /api/auth/me 401 in 34ms
+ GET /api/auth/me 401 in 30ms
+ GET /api/locations?page=1&limit=12 200 in 32ms
+ GET /api/auth/me 401 in 17ms
+ GET /api/locations?page=1&limit=12 200 in 22ms
+ GET /api/auth/me 401 in 26ms
+ GET /api/locations?page=1&limit=12 200 in 19ms
+ GET /api/locations?page=1&limit=12 200 in 20ms
+[?25h

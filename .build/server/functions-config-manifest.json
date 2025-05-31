@@ -1,0 +1,1 @@
+{"version":1,"functions":{"/api/auth/me":{},"/api/auth/logout":{},"/api/auth/login":{},"/api/auth/register":{},"/api/articles":{},"/api/challenges":{},"/api/seed":{},"/api/locations/[id]":{},"/api/marketplace":{},"/api/locations":{},"/":{}}}

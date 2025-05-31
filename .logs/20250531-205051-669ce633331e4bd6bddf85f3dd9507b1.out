@@ -1,0 +1,89 @@
+yarn run v1.22.22
+$ next dev
+  ▲ Next.js 14.2.29
+  - Local:        http://localhost:3000
+  - Environments: .env
+  - Experiments (use with caution):
+    · outputFileTracingRoot
+
+ ✓ Starting...
+ ✓ Ready in 2.2s
+ ○ Compiling / ...
+ ✓ Compiled / in 12s (1577 modules)
+ GET / 200 in 12412ms
+ ○ Compiling /api/auth/me ...
+ ✓ Compiled /api/auth/me in 2.7s (887 modules)
+ GET /api/auth/me 401 in 2927ms
+ GET /api/auth/me 401 in 26ms
+ GET / 200 in 87ms
+ ○ Compiling /locations ...
+ ✓ Compiled /locations in 1113ms (1718 modules)
+ GET /locations 200 in 1223ms
+ ○ Compiling /marketplace ...
+ ✓ Compiled /marketplace in 513ms (1718 modules)
+ GET /marketplace 200 in 596ms
+ ✓ Compiled in 357ms (817 modules)
+ ✓ Compiled in 525ms (817 modules)
+ ✓ Compiled in 331ms (817 modules)
+ ✓ Compiled in 324ms (817 modules)
+ ✓ Compiled in 431ms (817 modules)
+ ✓ Compiled in 566ms (817 modules)
+ ✓ Compiled in 3.4s (817 modules)
+ ✓ Compiled in 319ms (817 modules)
+ ✓ Compiled in 559ms (817 modules)
+ ✓ Compiled in 3s (817 modules)
+ ✓ Compiled in 324ms (817 modules)
+ ✓ Compiled in 1597ms (1743 modules)
+ GET / 200 in 755ms
+ GET /api/auth/me 401 in 41ms
+ GET /api/auth/me 401 in 19ms
+ ✓ Compiled in 311ms (815 modules)
+ ✓ Compiled in 484ms (815 modules)
+ ✓ Compiled in 260ms (815 modules)
+ ✓ Compiled in 289ms (815 modules)
+ ✓ Compiled in 983ms (815 modules)
+ ✓ Compiled in 4.3s (815 modules)
+ ✓ Compiled in 332ms (815 modules)
+ ✓ Compiled in 689ms (815 modules)
+ ✓ Compiled in 5s (815 modules)
+ ✓ Compiled in 328ms (815 modules)
+  ▲ Next.js 14.2.29
+  - Local:        http://localhost:3000
+  - Environments: .env
+  - Experiments (use with caution):
+    · outputFileTracingRoot
+
+ ✓ Starting...
+ ✓ Ready in 2.5s
+  ▲ Next.js 14.2.29
+  - Local:        http://localhost:3000
+  - Environments: .env
+  - Experiments (use with caution):
+    · outputFileTracingRoot
+
+ ✓ Starting...
+ ✓ Ready in 1892ms
+  ▲ Next.js 14.2.29
+  - Local:        http://localhost:3000
+  - Environments: .env
+  - Experiments (use with caution):
+    · outputFileTracingRoot
+
+ ✓ Starting...
+ ✓ Ready in 2s
+  ▲ Next.js 14.2.29
+  - Local:        http://localhost:3000
+  - Environments: .env
+  - Experiments (use with caution):
+    · outputFileTracingRoot
+
+ ✓ Starting...
+ ✓ Ready in 1889ms
+  ▲ Next.js 14.2.29
+  - Local:        http://localhost:3000
+  - Environments: .env
+  - Experiments (use with caution):
+    · outputFileTracingRoot
+
+ ✓ Starting...
+ ✓ Ready in 1887ms
