@@ -1,0 +1,1 @@
+"use strict";exports.id=462,exports.ids=[462],exports.modules={7462:(i,r,t)=>{t.d(r,{prisma:()=>s});var e=t(96330);let s=globalThis.prisma??function(){try{return new e.PrismaClient({log:[]})}catch(i){return console.warn("Prisma client initialization failed during build:",i),{}}}()}};
