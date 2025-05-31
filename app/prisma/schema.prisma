@@ -1,0 +1,343 @@
+generator client {
+    provider = "prisma-client-js"
+    binaryTargets = ["native", "linux-musl-arm64-openssl-3.0.x"]
+    output = "/home/ubuntu/fotoverse/node_modules/.prisma/client"
+}
+
+datasource db {
+    provider = "postgresql"
+    url      = env("DATABASE_URL")
+}
+
+enum UserRole {
+  PHOTOGRAPHER
+  CREATOR
+  LOCATION_OWNER
+  ADMIN
+}
+
+enum LocationType {
+  HOME_STUDIO
+  COMMERCIAL_STUDIO
+  OUTDOOR_SPOT
+  UNIQUE_SPACE
+}
+
+enum LocationVibe {
+  SOFT_LUXE
+  WITCHY
+  MODERN
+  VINTAGE
+  MINIMALIST
+  RUSTIC
+  URBAN
+  NATURAL
+}
+
+enum BookingStatus {
+  PENDING
+  CONFIRMED
+  CANCELLED
+  COMPLETED
+}
+
+enum EquipmentCategory {
+  CAMERA
+  LENS
+  LIGHTING
+  BACKDROP
+  PROPS
+  WARDROBE
+  ACCESSORIES
+}
+
+enum ChallengeStatus {
+  ACTIVE
+  ENDED
+  UPCOMING
+}
+
+model User {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  name      String?
+  password  String
+  role      UserRole @default(PHOTOGRAPHER)
+  avatar    String?
+  bio       String?
+  website   String?
+  instagram String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // Relations
+  profile           UserProfile?
+  ownedLocations    Location[]
+  bookings          Booking[]
+  equipmentListings EquipmentListing[]
+  challengeSubmissions ChallengeSubmission[]
+  articles          Article[]
+  portfolioItems    PortfolioItem[]
+  sentMessages      Message[] @relation("SentMessages")
+  receivedMessages  Message[] @relation("ReceivedMessages")
+  reviews           Review[]
+  favorites         Favorite[]
+
+  @@map("users")
+}
+
+model UserProfile {
+  id           String @id @default(cuid())
+  userId       String @unique
+  user         User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  // Professional details
+  experience   String?
+  specialties  String[]
+  equipment    String[]
+  location     String?
+  hourlyRate   Float?
+  
+  // Social links
+  portfolio    String?
+  facebook     String?
+  twitter      String?
+  linkedin     String?
+  
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  @@map("user_profiles")
+}
+
+model Location {
+  id          String       @id @default(cuid())
+  title       String
+  description String
+  type        LocationType
+  vibe        LocationVibe
+  address     String
+  city        String
+  state       String
+  country     String
+  latitude    Float?
+  longitude   Float?
+  
+  // Pricing and availability
+  hourlyRate  Float
+  dailyRate   Float?
+  minBooking  Int          @default(1) // minimum hours
+  maxBooking  Int          @default(24) // maximum hours
+  
+  // Features and amenities
+  amenities   String[]
+  lighting    String[]
+  access      String
+  parking     Boolean      @default(false)
+  wifi        Boolean      @default(false)
+  restroom    Boolean      @default(false)
+  
+  // Media
+  images      String[]
+  coverImage  String?
+  
+  // Metadata
+  isActive    Boolean      @default(true)
+  rating      Float        @default(0)
+  reviewCount Int          @default(0)
+  
+  // Relations
+  ownerId     String
+  owner       User         @relation(fields: [ownerId], references: [id])
+  bookings    Booking[]
+  reviews     Review[]
+  favorites   Favorite[]
+  
+  createdAt   DateTime     @default(now())
+  updatedAt   DateTime     @updatedAt
+
+  @@map("locations")
+}
+
+model Booking {
+  id          String        @id @default(cuid())
+  locationId  String
+  location    Location      @relation(fields: [locationId], references: [id])
+  userId      String
+  user        User          @relation(fields: [userId], references: [id])
+  
+  startDate   DateTime
+  endDate     DateTime
+  totalHours  Int
+  totalAmount Float
+  status      BookingStatus @default(PENDING)
+  
+  // Additional details
+  purpose     String?
+  notes       String?
+  
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @updatedAt
+
+  @@map("bookings")
+}
+
+model EquipmentListing {
+  id          String            @id @default(cuid())
+  title       String
+  description String
+  category    EquipmentCategory
+  brand       String?
+  model       String?
+  condition   String
+  price       Float
+  
+  // Details
+  images      String[]
+  specifications String?
+  isAvailable Boolean           @default(true)
+  isSold      Boolean           @default(false)
+  
+  // Location
+  city        String
+  state       String
+  
+  // Relations
+  sellerId    String
+  seller      User              @relation(fields: [sellerId], references: [id])
+  
+  createdAt   DateTime          @default(now())
+  updatedAt   DateTime          @updatedAt
+
+  @@map("equipment_listings")
+}
+
+model CommunityChallenge {
+  id          String            @id @default(cuid())
+  title       String
+  description String
+  theme       String
+  rules       String[]
+  
+  startDate   DateTime
+  endDate     DateTime
+  status      ChallengeStatus   @default(UPCOMING)
+  
+  // Prizes
+  prizes      String[]
+  
+  // Media
+  coverImage  String?
+  
+  // Relations
+  submissions ChallengeSubmission[]
+  
+  createdAt   DateTime          @default(now())
+  updatedAt   DateTime          @updatedAt
+
+  @@map("community_challenges")
+}
+
+model ChallengeSubmission {
+  id          String            @id @default(cuid())
+  challengeId String
+  challenge   CommunityChallenge @relation(fields: [challengeId], references: [id])
+  userId      String
+  user        User              @relation(fields: [userId], references: [id])
+  
+  title       String
+  description String?
+  imageUrl    String
+  votes       Int               @default(0)
+  
+  createdAt   DateTime          @default(now())
+  updatedAt   DateTime          @updatedAt
+
+  @@unique([challengeId, userId])
+  @@map("challenge_submissions")
+}
+
+model Article {
+  id          String   @id @default(cuid())
+  title       String
+  content     String
+  excerpt     String?
+  coverImage  String?
+  tags        String[]
+  category    String
+  
+  isPublished Boolean  @default(false)
+  publishedAt DateTime?
+  
+  // Relations
+  authorId    String
+  author      User     @relation(fields: [authorId], references: [id])
+  
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@map("articles")
+}
+
+model PortfolioItem {
+  id          String   @id @default(cuid())
+  userId      String
+  user        User     @relation(fields: [userId], references: [id])
+  
+  title       String
+  description String?
+  imageUrl    String
+  category    String?
+  tags        String[]
+  
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@map("portfolio_items")
+}
+
+model Message {
+  id         String   @id @default(cuid())
+  senderId   String
+  sender     User     @relation("SentMessages", fields: [senderId], references: [id])
+  receiverId String
+  receiver   User     @relation("ReceivedMessages", fields: [receiverId], references: [id])
+  
+  content    String
+  isRead     Boolean  @default(false)
+  
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  @@map("messages")
+}
+
+model Review {
+  id         String   @id @default(cuid())
+  locationId String
+  location   Location @relation(fields: [locationId], references: [id])
+  userId     String
+  user       User     @relation(fields: [userId], references: [id])
+  
+  rating     Int      // 1-5 stars
+  comment    String?
+  
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  @@unique([locationId, userId])
+  @@map("reviews")
+}
+
+model Favorite {
+  id         String   @id @default(cuid())
+  userId     String
+  user       User     @relation(fields: [userId], references: [id])
+  locationId String
+  location   Location @relation(fields: [locationId], references: [id])
+  
+  createdAt  DateTime @default(now())
+
+  @@unique([userId, locationId])
+  @@map("favorites")
+}
