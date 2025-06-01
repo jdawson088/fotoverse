@@ -145,7 +145,7 @@ function LocationsPageContent() {
     { value: 'MINIMALIST', label: 'Pure & Simple' },
     { value: 'RUSTIC', label: 'Rustic Charm' },
     { value: 'URBAN', label: 'City Soul' },
-    { value: 'NATURAL', label: 'Earth's Beauty' },
+    { value: 'NATURAL', label: 'Earth\'s Beauty' },
   ];
 
   return (
