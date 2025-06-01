@@ -1,4 +1,5 @@
 
+
 'use client';
 
 import { useState, useEffect } from 'react';
@@ -19,7 +20,9 @@ import {
   Gift,
   Upload,
   Heart,
-  Eye
+  Eye,
+  Sparkles,
+  Zap
 } from 'lucide-react';
 
 interface Challenge {
@@ -128,12 +131,12 @@ export default function ChallengesPage() {
             transition={{ duration: 0.8 }}
             className="text-center"
           >
-            <Trophy className="h-16 w-16 mx-auto mb-6" />
+            <Sparkles className="h-16 w-16 mx-auto mb-6" />
             <h1 className="text-4xl md:text-5xl font-bold mb-4">
-              Photography Challenges
+              Creative Challenges
             </h1>
             <p className="text-xl text-purple-100 max-w-3xl mx-auto">
-              Showcase your creativity, compete with fellow photographers, and win amazing prizes
+              Push your boundaries, discover new perspectives, and celebrate the magic of creativity with fellow artists
             </p>
           </motion.div>
         </div>
@@ -143,9 +146,9 @@ export default function ChallengesPage() {
         {/* Tabs */}
         <Tabs value={activeTab} onValueChange={setActiveTab} className="mb-8">
           <TabsList className="grid w-full grid-cols-4 lg:w-96">
-            <TabsTrigger value="active">Active</TabsTrigger>
-            <TabsTrigger value="upcoming">Upcoming</TabsTrigger>
-            <TabsTrigger value="ended">Ended</TabsTrigger>
+            <TabsTrigger value="active">Live Now</TabsTrigger>
+            <TabsTrigger value="upcoming">Coming Soon</TabsTrigger>
+            <TabsTrigger value="ended">Hall of Fame</TabsTrigger>
             <TabsTrigger value="all">All</TabsTrigger>
           </TabsList>
 
@@ -181,7 +184,8 @@ export default function ChallengesPage() {
                         />
                         <div className="absolute top-4 left-4">
                           <Badge className={getStatusColor(challenge.status)}>
-                            {challenge.status}
+                            {challenge.status === 'ACTIVE' ? 'Live Now' : 
+                             challenge.status === 'UPCOMING' ? 'Coming Soon' : 'Completed'}
                           </Badge>
                         </div>
                         {challenge.status === 'ACTIVE' && (
@@ -209,19 +213,19 @@ export default function ChallengesPage() {
                           
                           <div className="flex items-center text-sm text-gray-600">
                             <Users className="h-4 w-4 mr-2" />
-                            <span>{challenge._count.submissions} submissions</span>
+                            <span>{challenge._count.submissions} creative souls participating</span>
                           </div>
 
                           <div className="flex items-center text-sm text-gray-600">
                             <Gift className="h-4 w-4 mr-2" />
-                            <span>{challenge.prizes.length} prizes</span>
+                            <span>{challenge.prizes.length} amazing rewards</span>
                           </div>
                         </div>
 
                         {/* Top Submissions Preview */}
                         {challenge.submissions.length > 0 && (
                           <div className="mb-4">
-                            <p className="text-sm font-medium text-gray-700 mb-2">Top Submissions:</p>
+                            <p className="text-sm font-medium text-gray-700 mb-2">Featured Creations:</p>
                             <div className="flex space-x-2">
                               {challenge.submissions.slice(0, 3).map((submission) => (
                                 <div key={submission.id} className="relative">
@@ -247,13 +251,13 @@ export default function ChallengesPage() {
                           <Button asChild className="flex-1">
                             <Link href={`/challenges/${challenge.id}`}>
                               <Eye className="h-4 w-4 mr-2" />
-                              View Details
+                              Explore
                             </Link>
                           </Button>
                           {challenge.status === 'ACTIVE' && (
                             <Button variant="outline">
                               <Upload className="h-4 w-4 mr-2" />
-                              Submit
+                              Join In
                             </Button>
                           )}
                         </div>
@@ -267,12 +271,12 @@ export default function ChallengesPage() {
             {/* Empty State */}
             {!loading && challenges.length === 0 && (
               <div className="text-center py-12">
-                <Trophy className="h-16 w-16 text-gray-400 mx-auto mb-4" />
+                <Sparkles className="h-16 w-16 text-gray-400 mx-auto mb-4" />
                 <h3 className="text-lg font-semibold mb-2">No challenges found</h3>
                 <p className="text-gray-600">
                   {activeTab === 'active' 
-                    ? 'No active challenges at the moment. Check back soon!'
-                    : `No ${activeTab} challenges found.`
+                    ? 'New creative adventures are being crafted. Check back soon!'
+                    : `No ${activeTab} challenges to explore right now.`
                   }
                 </p>
               </div>
@@ -290,20 +294,20 @@ export default function ChallengesPage() {
           <Card className="bg-gradient-to-r from-purple-50 to-blue-50 border-0">
             <CardContent className="p-8">
               <div className="text-center">
-                <Camera className="h-12 w-12 text-purple-600 mx-auto mb-4" />
-                <h2 className="text-2xl font-bold mb-4">Ready to Showcase Your Talent?</h2>
+                <Zap className="h-12 w-12 text-purple-600 mx-auto mb-4" />
+                <h2 className="text-2xl font-bold mb-4">Ready to Ignite Your Creativity?</h2>
                 <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
-                  Join our photography challenges and compete with talented creators from around the world. 
-                  Win amazing prizes and get featured in our community gallery.
+                  Join our creative challenges and discover new dimensions of your artistic vision. 
+                  Connect with inspiring creators, push your boundaries, and celebrate the joy of creation.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
                   <Button size="lg">
                     <Upload className="h-5 w-5 mr-2" />
-                    Submit to Active Challenge
+                    Share Your Vision
                   </Button>
                   <Button size="lg" variant="outline">
                     <Trophy className="h-5 w-5 mr-2" />
-                    View Past Winners
+                    Celebrate Past Winners
                   </Button>
                 </div>
               </div>
@@ -314,3 +318,4 @@ export default function ChallengesPage() {
     </div>
   );
 }
+

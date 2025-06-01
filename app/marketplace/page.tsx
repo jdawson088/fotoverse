@@ -1,4 +1,5 @@
 
+
 'use client';
 
 import { useState, useEffect } from 'react';
@@ -21,7 +22,9 @@ import {
   Plus,
   ShoppingBag,
   Star,
-  MessageCircle
+  MessageCircle,
+  Sparkles,
+  Users
 } from 'lucide-react';
 
 interface Equipment {
@@ -121,20 +124,20 @@ export default function MarketplacePage() {
   };
 
   const categories = [
-    { value: 'CAMERA', label: 'Cameras' },
-    { value: 'LENS', label: 'Lenses' },
-    { value: 'LIGHTING', label: 'Lighting' },
-    { value: 'BACKDROP', label: 'Backdrops' },
-    { value: 'PROPS', label: 'Props' },
-    { value: 'WARDROBE', label: 'Wardrobe' },
-    { value: 'ACCESSORIES', label: 'Accessories' },
+    { value: 'CAMERA', label: 'Dream Cameras' },
+    { value: 'LENS', label: 'Vision Lenses' },
+    { value: 'LIGHTING', label: 'Light Magic' },
+    { value: 'BACKDROP', label: 'Story Backdrops' },
+    { value: 'PROPS', label: 'Creative Props' },
+    { value: 'WARDROBE', label: 'Style Wardrobe' },
+    { value: 'ACCESSORIES', label: 'Essential Accessories' },
   ];
 
   const conditions = [
-    { value: 'New', label: 'New' },
+    { value: 'New', label: 'Brand New' },
     { value: 'Like New', label: 'Like New' },
-    { value: 'Good', label: 'Good' },
-    { value: 'Fair', label: 'Fair' },
+    { value: 'Good', label: 'Well Loved' },
+    { value: 'Fair', label: 'Character Rich' },
   ];
 
   const getEquipmentImage = (item: Equipment) => {
@@ -170,15 +173,18 @@ export default function MarketplacePage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
           <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
             <div>
-              <h1 className="text-3xl font-bold text-gray-900">Equipment Marketplace</h1>
+              <h1 className="text-3xl font-bold text-gray-900 flex items-center">
+                <Users className="h-8 w-8 mr-3 text-primary" />
+                Creative Community Marketplace
+              </h1>
               <p className="text-gray-600 mt-1">
-                Buy and sell photography gear with the community
+                Share gear, spread joy, and fuel each other's creative dreams
               </p>
             </div>
             
             <Button className="lg:w-auto">
               <Plus className="h-4 w-4 mr-2" />
-              List Equipment
+              Share Your Gear
             </Button>
           </div>
         </div>
@@ -192,11 +198,11 @@ export default function MarketplacePage() {
               <CardContent className="p-6">
                 <div className="flex items-center justify-between mb-4">
                   <h3 className="text-lg font-semibold flex items-center">
-                    <Filter className="h-5 w-5 mr-2" />
-                    Filters
+                    <Sparkles className="h-5 w-5 mr-2 text-primary" />
+                    Find Your Perfect Gear
                   </h3>
                   <Button variant="ghost" size="sm" onClick={clearFilters}>
-                    Clear
+                    Reset
                   </Button>
                 </div>
 
@@ -206,7 +212,7 @@ export default function MarketplacePage() {
                     <div className="relative">
                       <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-4 w-4" />
                       <Input
-                        placeholder="Search equipment..."
+                        placeholder="Search for creative tools..."
                         value={filters.search}
                         onChange={(e) => setFilters(prev => ({ ...prev, search: e.target.value }))}
                         className="pl-10"
@@ -216,7 +222,7 @@ export default function MarketplacePage() {
 
                   {/* Category */}
                   <div>
-                    <label className="text-sm font-medium mb-2 block">Category</label>
+                    <label className="text-sm font-medium mb-2 block">Creative Category</label>
                     <Select
                       value={filters.category || undefined}
                       onValueChange={(value) => setFilters(prev => ({ ...prev, category: value || '' }))}
@@ -269,7 +275,7 @@ export default function MarketplacePage() {
                   {/* Price Range */}
                   <div>
                     <label className="text-sm font-medium mb-2 block">
-                      Price Range: ${filters.priceRange[0]} - ${filters.priceRange[1]}
+                      Investment Range: ${filters.priceRange[0]} - ${filters.priceRange[1]}
                     </label>
                     <Slider
                       value={filters.priceRange}
@@ -289,7 +295,7 @@ export default function MarketplacePage() {
             {/* Results Header */}
             <div className="flex items-center justify-between mb-6">
               <p className="text-gray-600">
-                {pagination.total} items found
+                {pagination.total} creative treasures waiting to inspire
               </p>
             </div>
 
@@ -319,7 +325,7 @@ export default function MarketplacePage() {
                       <div className="relative aspect-square bg-gray-200">
                         <Image
                           src={getEquipmentImage(item)}
-                          alt={`${item.title} - ${item.category.replace('_', ' ')} for sale in ${item.city}`}
+                          alt={`${item.title} - ${item.category.replace('_', ' ')} shared by creative community member in ${item.city}`}
                           fill
                           className="object-cover"
                         />
@@ -356,7 +362,7 @@ export default function MarketplacePage() {
                             <Avatar className="h-6 w-6">
                               <AvatarImage src={item.seller.avatar || ''} />
                               <AvatarFallback className="text-xs">
-                                {item.seller.name?.charAt(0) || 'U'}
+                                {item.seller.name?.charAt(0) || 'C'}
                               </AvatarFallback>
                             </Avatar>
                             <span className="text-sm text-gray-600">{item.seller.name}</span>
@@ -369,7 +375,7 @@ export default function MarketplacePage() {
                           </span>
                           <Button size="sm">
                             <MessageCircle className="h-4 w-4 mr-1" />
-                            Contact
+                            Connect
                           </Button>
                         </div>
                       </CardContent>
@@ -383,11 +389,11 @@ export default function MarketplacePage() {
             {!loading && equipment.length === 0 && (
               <div className="text-center py-12">
                 <ShoppingBag className="h-16 w-16 text-gray-400 mx-auto mb-4" />
-                <h3 className="text-lg font-semibold mb-2">No equipment found</h3>
+                <h3 className="text-lg font-semibold mb-2">No creative treasures found</h3>
                 <p className="text-gray-600 mb-4">
-                  Try adjusting your filters or search terms.
+                  Try exploring different categories or expanding your search.
                 </p>
-                <Button onClick={clearFilters}>Clear Filters</Button>
+                <Button onClick={clearFilters}>Explore All Gear</Button>
               </div>
             )}
 
@@ -432,3 +438,4 @@ export default function MarketplacePage() {
     </div>
   );
 }
+

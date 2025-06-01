@@ -1,4 +1,5 @@
 
+
 'use client';
 
 import { useState, useEffect } from 'react';
@@ -22,7 +23,9 @@ import {
   ArrowRight,
   Heart,
   Zap,
-  Globe
+  Globe,
+  Sparkles,
+  Compass
 } from 'lucide-react';
 
 interface CounterProps {
@@ -65,55 +68,55 @@ export default function HomePage() {
 
   const features = [
     {
-      icon: MapPin,
-      title: 'Discover Unique Locations',
-      description: 'Find the perfect photography spots from home studios to breathtaking outdoor locations.',
+      icon: Compass,
+      title: 'Discover Your Next Adventure',
+      description: 'Uncover hidden gems and magical spaces where your creative vision comes alive. Every location tells a story waiting for you to capture.',
       color: 'text-blue-600'
     },
     {
-      icon: ShoppingBag,
-      title: 'Equipment Marketplace',
-      description: 'Buy, sell, and rent photography gear directly from the community.',
+      icon: Heart,
+      title: 'Share the Creative Journey',
+      description: 'Connect with passionate creators who understand your artistic soul. Trade gear, share stories, and build lasting friendships.',
       color: 'text-green-600'
     },
     {
-      icon: Trophy,
-      title: 'Monthly Challenges',
-      description: 'Participate in creative challenges and win amazing prizes.',
+      icon: Sparkles,
+      title: 'Ignite Your Creativity',
+      description: 'Push your boundaries with inspiring challenges that spark new ideas and help you discover styles you never knew existed.',
       color: 'text-yellow-600'
     },
     {
       icon: BookOpen,
-      title: 'Educational Content',
-      description: 'Learn from experts with our comprehensive photography magazine.',
+      title: 'Learn from the Masters',
+      description: 'Dive deep into the minds of visionary artists. Every tutorial is a doorway to new possibilities and creative breakthroughs.',
       color: 'text-purple-600'
     },
     {
       icon: Users,
-      title: 'Creative Community',
-      description: 'Connect with photographers, models, and creators worldwide.',
+      title: 'Find Your Creative Tribe',
+      description: 'Join a community where passion meets purpose. Collaborate, inspire, and grow together with fellow dreamers and creators.',
       color: 'text-pink-600'
     },
     {
       icon: Zap,
-      title: 'Instant Booking',
-      description: 'Book locations instantly with our seamless booking system.',
+      title: 'Create Without Limits',
+      description: 'Turn inspiration into reality instantly. When creativity strikes, nothing should stand between you and your vision.',
       color: 'text-orange-600'
     }
   ];
 
   const stats = [
-    { label: 'Active Photographers', value: 15000, suffix: '+' },
-    { label: 'Unique Locations', value: 2500, suffix: '+' },
-    { label: 'Equipment Listed', value: 8000, suffix: '+' },
-    { label: 'Challenges Completed', value: 150, suffix: '+' }
+    { label: 'Creative Souls', value: 15000, suffix: '+' },
+    { label: 'Magical Spaces', value: 2500, suffix: '+' },
+    { label: 'Dreams Shared', value: 8000, suffix: '+' },
+    { label: 'Stories Told', value: 150, suffix: '+' }
   ];
 
   const featuredLocations = [
     {
       id: '1',
       title: 'Minimalist Studio Downtown',
-      type: 'Commercial Studio',
+      type: 'Creative Sanctuary',
       vibe: 'Modern',
       price: 75,
       rating: 4.9,
@@ -123,7 +126,7 @@ export default function HomePage() {
     {
       id: '2',
       title: 'Vintage Bookshop Cafe',
-      type: 'Unique Space',
+      type: 'Storytelling Haven',
       vibe: 'Vintage',
       price: 45,
       rating: 4.8,
@@ -133,7 +136,7 @@ export default function HomePage() {
     {
       id: '3',
       title: 'Rooftop Garden Oasis',
-      type: 'Outdoor Spot',
+      type: 'Natural Wonder',
       vibe: 'Natural',
       price: 60,
       rating: 4.7,
@@ -166,14 +169,15 @@ export default function HomePage() {
             transition={{ duration: 0.8 }}
           >
             <h1 className="text-5xl md:text-7xl font-bold mb-6">
-              Welcome to{' '}
+              Your Creative{' '}
               <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-                FOTOVERSE
+                Photography
               </span>
+              {' '}Playground
             </h1>
             <p className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto text-gray-200">
-              The all-in-one platform for photographers and creators. Discover unique locations, 
-              rent equipment, join challenges, and connect with the creative community.
+              Where passion meets possibility. Discover magical spaces, connect with kindred spirits, 
+              and transform your creative dreams into breathtaking reality.
             </p>
           </motion.div>
 
@@ -185,12 +189,12 @@ export default function HomePage() {
           >
             <Button size="lg" className="btn-primary text-lg px-8 py-4">
               <Link href="/locations" className="flex items-center">
-                Explore Locations
+                Begin Your Adventure
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Link>
             </Button>
             <Button size="lg" variant="outline" className="text-lg px-8 py-4 bg-white/10 border-white/20 text-white hover:bg-white/20">
-              <Link href="/auth/register">Join Community</Link>
+              <Link href="/auth/register">Join the Movement</Link>
             </Button>
           </motion.div>
 
@@ -205,7 +209,7 @@ export default function HomePage() {
               <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 h-5 w-5" />
               <Input
                 type="text"
-                placeholder="Search for photography locations, studios, or unique spaces..."
+                placeholder="Search for inspiring spaces, creative sanctuaries, or hidden gems..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 className="pl-12 pr-4 py-4 text-lg bg-white/90 border-0 rounded-full"
@@ -218,7 +222,7 @@ export default function HomePage() {
                   }
                 }}
               >
-                Search
+                Explore
               </Button>
             </div>
           </motion.div>
@@ -255,12 +259,12 @@ export default function HomePage() {
             className="text-center mb-16"
           >
             <h2 className="text-4xl md:text-5xl font-bold mb-6">
-              Everything You Need in{' '}
-              <span className="text-primary">One Platform</span>
+              Where Dreams Take{' '}
+              <span className="text-primary">Flight</span>
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              FOTOVERSE brings together all the tools and resources photographers need 
-              to create, connect, and grow their craft.
+              FOTOVERSE isn't just a platform—it's a canvas for your imagination, 
+              a community for your soul, and a launchpad for your creative journey.
             </p>
           </motion.div>
 
@@ -300,11 +304,11 @@ export default function HomePage() {
             className="text-center mb-16"
           >
             <h2 className="text-4xl md:text-5xl font-bold mb-6">
-              Featured <span className="text-primary">Locations</span>
+              Spaces That <span className="text-primary">Inspire</span>
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Discover some of our most popular photography locations, 
-              handpicked by our community of creators.
+              Step into worlds where creativity knows no bounds. Each space is carefully curated 
+              to spark your imagination and bring your artistic vision to life.
             </p>
           </motion.div>
 
@@ -356,7 +360,7 @@ export default function HomePage() {
           <div className="text-center mt-12">
             <Button size="lg" asChild>
               <Link href="/locations">
-                View All Locations
+                Discover More Magic
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Link>
             </Button>
@@ -373,18 +377,18 @@ export default function HomePage() {
             transition={{ duration: 0.8 }}
           >
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-              Ready to Start Your Creative Journey?
+              Ready to Unleash Your Creative Spirit?
             </h2>
             <p className="text-xl text-white/90 mb-8 max-w-3xl mx-auto">
-              Join thousands of photographers and creators who are already using FOTOVERSE 
-              to discover, create, and connect.
+              Join thousands of passionate creators who've found their artistic home in FOTOVERSE. 
+              Your next masterpiece is just one click away.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button size="lg" className="bg-white text-gray-900 hover:bg-gray-100 text-lg px-8 py-4">
-                <Link href="/auth/register">Get Started Free</Link>
+                <Link href="/auth/register">Start Creating Today</Link>
               </Button>
               <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10 text-lg px-8 py-4">
-                <Link href="/locations">Explore Platform</Link>
+                <Link href="/locations">Explore the Playground</Link>
               </Button>
             </div>
           </motion.div>
@@ -393,3 +397,4 @@ export default function HomePage() {
     </div>
   );
 }
+

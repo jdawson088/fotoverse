@@ -1,4 +1,5 @@
 
+
 'use client';
 
 import { useState, useEffect } from 'react';
@@ -22,7 +23,11 @@ import {
   User, 
   LogOut,
   Menu,
-  X
+  X,
+  Compass,
+  Users,
+  Sparkles,
+  Heart
 } from 'lucide-react';
 
 interface User {
@@ -65,10 +70,10 @@ export function Navigation() {
   };
 
   const navItems = [
-    { href: '/locations', label: 'Locations', icon: MapPin },
-    { href: '/marketplace', label: 'Marketplace', icon: ShoppingBag },
-    { href: '/challenges', label: 'Challenges', icon: Trophy },
-    { href: '/magazine', label: 'Magazine', icon: BookOpen },
+    { href: '/locations', label: 'Discover', icon: Compass },
+    { href: '/marketplace', label: 'Share', icon: Users },
+    { href: '/challenges', label: 'Create', icon: Sparkles },
+    { href: '/magazine', label: 'Inspire', icon: Heart },
   ];
 
   return (
@@ -133,13 +138,13 @@ export function Navigation() {
                   <DropdownMenuItem asChild>
                     <Link href="/dashboard" className="flex items-center">
                       <Camera className="mr-2 h-4 w-4" />
-                      <span>Dashboard</span>
+                      <span>Creative Hub</span>
                     </Link>
                   </DropdownMenuItem>
                   <DropdownMenuSeparator />
                   <DropdownMenuItem onClick={handleLogout}>
                     <LogOut className="mr-2 h-4 w-4" />
-                    <span>Log out</span>
+                    <span>Sign Out</span>
                   </DropdownMenuItem>
                 </DropdownMenuContent>
               </DropdownMenu>
@@ -149,7 +154,7 @@ export function Navigation() {
                   <Link href="/auth/login">Sign In</Link>
                 </Button>
                 <Button asChild>
-                  <Link href="/auth/register">Sign Up</Link>
+                  <Link href="/auth/register">Join the Movement</Link>
                 </Button>
               </div>
             )}
@@ -193,7 +198,7 @@ export function Navigation() {
                   </Button>
                   <Button className="w-full" asChild>
                     <Link href="/auth/register" onClick={() => setIsMenuOpen(false)}>
-                      Sign Up
+                      Join the Movement
                     </Link>
                   </Button>
                 </div>
@@ -205,3 +210,4 @@ export function Navigation() {
     </nav>
   );
 }
+

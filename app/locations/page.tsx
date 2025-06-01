@@ -1,4 +1,5 @@
 
+
 'use client';
 
 import { useState, useEffect, Suspense } from 'react';
@@ -22,7 +23,9 @@ import {
   Car,
   Camera,
   Grid3X3,
-  Map
+  Map,
+  Sparkles,
+  Compass
 } from 'lucide-react';
 
 interface Location {
@@ -128,21 +131,21 @@ function LocationsPageContent() {
   };
 
   const locationTypes = [
-    { value: 'HOME_STUDIO', label: 'Home Studio' },
-    { value: 'COMMERCIAL_STUDIO', label: 'Commercial Studio' },
-    { value: 'OUTDOOR_SPOT', label: 'Outdoor Spot' },
-    { value: 'UNIQUE_SPACE', label: 'Unique Space' },
+    { value: 'HOME_STUDIO', label: 'Intimate Studios' },
+    { value: 'COMMERCIAL_STUDIO', label: 'Professional Sanctuaries' },
+    { value: 'OUTDOOR_SPOT', label: 'Natural Wonders' },
+    { value: 'UNIQUE_SPACE', label: 'Hidden Gems' },
   ];
 
   const locationVibes = [
     { value: 'SOFT_LUXE', label: 'Soft Luxe' },
-    { value: 'WITCHY', label: 'Witchy' },
-    { value: 'MODERN', label: 'Modern' },
-    { value: 'VINTAGE', label: 'Vintage' },
-    { value: 'MINIMALIST', label: 'Minimalist' },
-    { value: 'RUSTIC', label: 'Rustic' },
-    { value: 'URBAN', label: 'Urban' },
-    { value: 'NATURAL', label: 'Natural' },
+    { value: 'WITCHY', label: 'Mystical' },
+    { value: 'MODERN', label: 'Contemporary' },
+    { value: 'VINTAGE', label: 'Timeless' },
+    { value: 'MINIMALIST', label: 'Pure & Simple' },
+    { value: 'RUSTIC', label: 'Rustic Charm' },
+    { value: 'URBAN', label: 'City Soul' },
+    { value: 'NATURAL', label: 'Earth's Beauty' },
   ];
 
   return (
@@ -152,9 +155,12 @@ function LocationsPageContent() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
           <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
             <div>
-              <h1 className="text-3xl font-bold text-gray-900">Photography Locations</h1>
+              <h1 className="text-3xl font-bold text-gray-900 flex items-center">
+                <Compass className="h-8 w-8 mr-3 text-primary" />
+                Discover Your Creative Canvas
+              </h1>
               <p className="text-gray-600 mt-1">
-                Discover unique spaces for your next photo shoot
+                Explore magical spaces where your artistic vision comes alive
               </p>
             </div>
             
@@ -165,7 +171,7 @@ function LocationsPageContent() {
                 onClick={() => setViewMode('grid')}
               >
                 <Grid3X3 className="h-4 w-4 mr-2" />
-                Grid
+                Gallery
               </Button>
               <Button
                 variant={viewMode === 'map' ? 'default' : 'outline'}
@@ -188,11 +194,11 @@ function LocationsPageContent() {
               <CardContent className="p-6">
                 <div className="flex items-center justify-between mb-4">
                   <h3 className="text-lg font-semibold flex items-center">
-                    <Filter className="h-5 w-5 mr-2" />
-                    Filters
+                    <Sparkles className="h-5 w-5 mr-2 text-primary" />
+                    Find Your Perfect Space
                   </h3>
                   <Button variant="ghost" size="sm" onClick={clearFilters}>
-                    Clear
+                    Reset
                   </Button>
                 </div>
 
@@ -202,7 +208,7 @@ function LocationsPageContent() {
                     <div className="relative">
                       <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-4 w-4" />
                       <Input
-                        placeholder="Search locations..."
+                        placeholder="Search for inspiration..."
                         value={filters.search}
                         onChange={(e) => setFilters(prev => ({ ...prev, search: e.target.value }))}
                         className="pl-10"
@@ -212,16 +218,16 @@ function LocationsPageContent() {
 
                   {/* Location Type */}
                   <div>
-                    <label className="text-sm font-medium mb-2 block">Location Type</label>
+                    <label className="text-sm font-medium mb-2 block">Space Type</label>
                     <Select
                       value={filters.type || undefined}
                       onValueChange={(value) => setFilters(prev => ({ ...prev, type: value || '' }))}
                     >
                       <SelectTrigger>
-                        <SelectValue placeholder="Any type" />
+                        <SelectValue placeholder="Any space type" />
                       </SelectTrigger>
                       <SelectContent>
-                        <SelectItem value="all">Any type</SelectItem>
+                        <SelectItem value="all">Any space type</SelectItem>
                         {locationTypes.map((type) => (
                           <SelectItem key={type.value} value={type.value}>
                             {type.label}
@@ -233,7 +239,7 @@ function LocationsPageContent() {
 
                   {/* Vibe */}
                   <div>
-                    <label className="text-sm font-medium mb-2 block">Vibe</label>
+                    <label className="text-sm font-medium mb-2 block">Creative Vibe</label>
                     <Select
                       value={filters.vibe || undefined}
                       onValueChange={(value) => setFilters(prev => ({ ...prev, vibe: value || '' }))}
@@ -265,7 +271,7 @@ function LocationsPageContent() {
                   {/* Price Range */}
                   <div>
                     <label className="text-sm font-medium mb-2 block">
-                      Price Range: ${filters.priceRange[0]} - ${filters.priceRange[1]}/hour
+                      Investment Range: ${filters.priceRange[0]} - ${filters.priceRange[1]}/hour
                     </label>
                     <Slider
                       value={filters.priceRange}
@@ -287,7 +293,7 @@ function LocationsPageContent() {
                 {/* Results Header */}
                 <div className="flex items-center justify-between mb-6">
                   <p className="text-gray-600">
-                    {pagination.total} locations found
+                    {pagination.total} inspiring spaces await your creativity
                   </p>
                 </div>
 
@@ -318,7 +324,7 @@ function LocationsPageContent() {
                             <div className="relative aspect-[4/3] bg-gray-200">
                               <Image
                                 src={location.coverImage || location.images[0] || 'https://i.pinimg.com/736x/33/43/64/3343649eb38526c36b4aa321695ffa5e.jpg'}
-                                alt={`${location.title} - Photography location in ${location.city}`}
+                                alt={`${location.title} - Creative space in ${location.city} perfect for photography and artistic expression`}
                                 fill
                                 className="object-cover"
                               />
@@ -407,9 +413,9 @@ function LocationsPageContent() {
             ) : (
               <div className="bg-white rounded-lg p-8 text-center">
                 <Map className="h-16 w-16 text-gray-400 mx-auto mb-4" />
-                <h3 className="text-lg font-semibold mb-2">Map View Coming Soon</h3>
+                <h3 className="text-lg font-semibold mb-2">Interactive Map Coming Soon</h3>
                 <p className="text-gray-600">
-                  We're working on an interactive map to help you discover locations near you.
+                  We're crafting a beautiful map experience to help you discover creative spaces near you.
                 </p>
               </div>
             )}
@@ -422,8 +428,9 @@ function LocationsPageContent() {
 
 export default function LocationsPage() {
   return (
-    <Suspense fallback={<div className="min-h-screen bg-gray-50 flex items-center justify-center">Loading...</div>}>
+    <Suspense fallback={<div className="min-h-screen bg-gray-50 flex items-center justify-center">Loading magical spaces...</div>}>
       <LocationsPageContent />
     </Suspense>
   );
 }
+

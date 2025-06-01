@@ -1,4 +1,5 @@
 
+
 'use client';
 
 import { useState, useEffect } from 'react';
@@ -20,7 +21,9 @@ import {
   Camera,
   Lightbulb,
   Users,
-  Zap
+  Zap,
+  Heart,
+  Sparkles
 } from 'lucide-react';
 
 interface Article {
@@ -101,11 +104,11 @@ export default function MagazinePage() {
   };
 
   const categories = [
-    { value: 'all', label: 'All Articles', icon: BookOpen },
-    { value: 'tutorials', label: 'Tutorials', icon: Lightbulb },
-    { value: 'techniques', label: 'Techniques', icon: Camera },
-    { value: 'interviews', label: 'Interviews', icon: Users },
-    { value: 'gear', label: 'Gear Reviews', icon: Zap },
+    { value: 'all', label: 'All Stories', icon: BookOpen },
+    { value: 'tutorials', label: 'Creative Guides', icon: Lightbulb },
+    { value: 'techniques', label: 'Artistic Techniques', icon: Camera },
+    { value: 'interviews', label: 'Artist Spotlights', icon: Users },
+    { value: 'gear', label: 'Tool Reviews', icon: Zap },
   ];
 
   const formatDate = (dateString: string | null) => {
@@ -128,13 +131,13 @@ export default function MagazinePage() {
             transition={{ duration: 0.8 }}
             className="text-center"
           >
-            <BookOpen className="h-16 w-16 mx-auto mb-6" />
+            <Heart className="h-16 w-16 mx-auto mb-6" />
             <h1 className="text-4xl md:text-5xl font-bold mb-4">
-              FOTOVERSE Magazine
+              Stories That Inspire
             </h1>
             <p className="text-xl text-indigo-100 max-w-3xl mx-auto mb-8">
-              Learn from the best photographers, discover new techniques, and stay updated 
-              with the latest trends in photography
+              Dive into the hearts and minds of visionary artists. Discover techniques that spark wonder, 
+              stories that move souls, and wisdom that transforms your creative journey.
             </p>
             
             {/* Search Bar */}
@@ -143,7 +146,7 @@ export default function MagazinePage() {
                 <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 h-5 w-5" />
                 <Input
                   type="text"
-                  placeholder="Search articles, tutorials, and guides..."
+                  placeholder="Search for inspiration, stories, and creative wisdom..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   className="pl-12 pr-4 py-4 text-lg bg-white/90 border-0 rounded-full text-gray-900"
@@ -152,7 +155,7 @@ export default function MagazinePage() {
                   type="submit"
                   className="absolute right-2 top-1/2 transform -translate-y-1/2 rounded-full"
                 >
-                  Search
+                  Discover
                 </Button>
               </div>
             </form>
@@ -169,7 +172,10 @@ export default function MagazinePage() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="mb-16"
           >
-            <h2 className="text-3xl font-bold mb-8">Featured Articles</h2>
+            <h2 className="text-3xl font-bold mb-8 flex items-center">
+              <Sparkles className="h-8 w-8 mr-3 text-primary" />
+              Featured Inspirations
+            </h2>
             <div className="grid md:grid-cols-3 gap-8">
               {featuredArticles.map((article, index) => (
                 <motion.div
@@ -328,16 +334,16 @@ export default function MagazinePage() {
             {!loading && articles.length === 0 && (
               <div className="text-center py-12">
                 <BookOpen className="h-16 w-16 text-gray-400 mx-auto mb-4" />
-                <h3 className="text-lg font-semibold mb-2">No articles found</h3>
+                <h3 className="text-lg font-semibold mb-2">No stories found</h3>
                 <p className="text-gray-600 mb-4">
                   {searchQuery 
-                    ? 'Try adjusting your search terms.'
-                    : `No articles in the ${activeCategory} category yet.`
+                    ? 'Try exploring different topics or expanding your search.'
+                    : `New ${activeCategory} stories are being crafted. Check back soon!`
                   }
                 </p>
                 {searchQuery && (
                   <Button onClick={() => { setSearchQuery(''); fetchArticles(); }}>
-                    Clear Search
+                    Explore All Stories
                   </Button>
                 )}
               </div>
@@ -354,11 +360,11 @@ export default function MagazinePage() {
         >
           <Card className="bg-gradient-to-r from-indigo-50 to-purple-50 border-0">
             <CardContent className="p-8 text-center">
-              <BookOpen className="h-12 w-12 text-indigo-600 mx-auto mb-4" />
-              <h2 className="text-2xl font-bold mb-4">Stay Updated</h2>
+              <Heart className="h-12 w-12 text-indigo-600 mx-auto mb-4" />
+              <h2 className="text-2xl font-bold mb-4">Stay Connected to the Magic</h2>
               <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
-                Get the latest photography tips, tutorials, and industry insights 
-                delivered straight to your inbox.
+                Join our community of dreamers and creators. Get the latest stories, techniques, 
+                and inspiration delivered to your heart's inbox.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center max-w-md mx-auto">
                 <Input 
@@ -367,7 +373,7 @@ export default function MagazinePage() {
                   className="flex-1"
                 />
                 <Button>
-                  Subscribe
+                  Join the Journey
                   <ArrowRight className="h-4 w-4 ml-2" />
                 </Button>
               </div>
@@ -378,3 +384,4 @@ export default function MagazinePage() {
     </div>
   );
 }
+

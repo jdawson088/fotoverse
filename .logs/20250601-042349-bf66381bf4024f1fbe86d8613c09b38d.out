@@ -1,0 +1,21 @@
+yarn install v1.22.22
+[1/4] Resolving packages...
+[2/4] Fetching packages...
+[3/4] Linking dependencies...
+[4/4] Building fresh packages...
+success Saved lockfile.
+Done in 225.20s.
+Environment variables loaded from ../.env
+yarn run v1.22.22
+$ next dev
+   Loading config from /home/ubuntu/fotoverse/next.config.js
+   Loading config from /home/ubuntu/fotoverse/next.config.js
+   ▲ Next.js 15.2.3
+   - Local:        http://localhost:3000
+   - Network:      http://100.115.186.132:3000
+   - Environments: .env
+
+ ✓ Starting...
+   Loading config from /home/ubuntu/fotoverse/next.config.js
+   Loading config from /home/ubuntu/fotoverse/next.config.js
+ ✓ Ready in 3.6s
